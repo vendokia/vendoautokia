@@ -1,0 +1,22 @@
+﻿@{
+    Page.Title = "Pedido procesado correctamente.";
+    var emailNotSetUp = Request["NoEmail"] != null;
+}
+<ol id="orderProcess">
+    <li><span class="step-number">1</span>Elegir artículo</li>
+    <li><span class="step-number">2</span>Detalles &amp; envío</li>
+    <li class="current"><span class="step-number">3</span>Recibo</li>
+</ol>
+<h1>Confirmación del pedido</h1>
+
+@if (emailNotSetUp) {
+    <div class="message info">
+        <h2>Configure el correo.</h2>
+        <p>Escriba el nombre de usuario, la contraseña y la dirección del remitente de Hotmail en Order.cshtml para enviar el correo</p>
+    </div>
+} else {
+    <div class="message order-success">
+        <h2>Gracias por enviarnos su pedido.</h2>
+        <p>Estamos procesando su pedido y le hemos enviado un correo electrónico de confirmación. Agradecemos su interés y esperamos que lo disfrute.</p>
+    </div>
+}

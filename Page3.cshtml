@@ -1,0 +1,27 @@
+﻿@{var db = Database.Open("Bakery"); 
+   var selectQueryString = "SELECT Id,Name,Description,Price FROM Products ORDER BY Name"; 
+   }
+<html> 
+    <body> 
+        <h3>Ejemplo de base de datos C#</h3> 
+        <br>
+        <h1>Productos Humantis Tecnologic</h1> 
+        <table> 
+            <tr>
+                <th>Id</th> 
+                <th>Product</th> 
+                <th>Description</th> 
+                <th>Price</th> 
+            </tr>
+@foreach(var row in db.Query(selectQueryString)){
+    <tr> 
+        <td>@row.Id</td> 
+        <td>@row.Name</td> 
+        <td>@row.Description</td> 
+        <td align="right">@row.Price</td> 
+    </tr> 
+           }
+        </table> 
+    </body> 
+</html>
+

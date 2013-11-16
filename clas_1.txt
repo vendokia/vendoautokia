@@ -1,0 +1,125 @@
+https://github.com/vendokia/vendoautokia.git
+
+<div id="sidebar">  
+    @*Twitter.Search(
+        "#putyourhashtaghere", 
+        caption: "Búscanos", 
+        backgroundShellColor: "#e6e3d8", 
+        tweetsBackgroundColor: "#fdfcf7", 
+        shellColor: "#696969",
+        tweetsColor: "#696969",
+        tweetsLinksColor: "#a52f09")*@
+</div>
+
+Linus Torvalds creador de linux y  git (controlador de versiones).
+http://10.72.100.65/claroline/
+
+HENRY
+dworrell
+abregoyes@hotmail.com
+Dionis
+carla_ros@gmail.com
+*********************************************************14/11/2013
+https://github.com/join/plan
+http://try.github.io/levels/1/challenges/1
+https://developers.facebook.com/docs/plugins/like-button/
+https://github.com/vendokia
+contraseña 1234578.a
+
+Id,Name,Description,Price,ImageName
+Products
+
+http://10.72.100.65/claroline/
+http://www.youtube.com/watch?v=HHYsKhY8qEk
+method="post envia informacion x URL
+method="gets envia atravez de archivo
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Formulario básico Visual Basic</title>
+    </head>
+*********************************************************14/11/2013
+
+<!-->link href="~/Content/Site.css" rel="stylesheet" /-->
+ ftp://www.Humantis.somee.com; ) 
+http://www.humantis.somee.com/
+vendokia 
+autokia1.
+https://somee.com/DOKA/DOLogin.aspx
+http://10.72.102.145/claroline/
+http://prezi.com/ydfzltyiswox/page-web/
+
+**********************************************************08/11/2013
+servidores gratuito...
+
+video
+red social
+color
+
+tim verden link
+fisico
+html 1991
+
+jquery framework utilizado por JS
+head es recomendable subir los css
+
+video .mp4 o .mpeg
+
+http://keepvid.com/			cambia a video
+
+http://www.colorzilla.com/gradient-editor/  darle color a la pagina
+http://www.css3generator.com/   generar css3 border
+
+            /*<source src="http://www.w3schools.com/tags/movie.mp4" type="video/mp4">*/
+            /*<source src="http://www.w3schools.com/tags/movie.mp4" type="video/mp4">*/
+
+        /*<h1>Audio</h1>*/
+
+http://www.css3generator.com/
+
+**********************************************************07/11/2013
+http://10.72.102.38/claroline/
+http://10.72.102.38/claroline/claroline/document/document.php?cidReset=true&cidReq=ASP
+
+http://html5test.com/
+
+Ccs
+. es una clase
+# identificacion
+Fourth Coffee
+Humantis Tecnologic
+
+**********************************************************
+06/11/2012 
+http://www.desarrolloweb.com/
+http://www.w3schools.com/
+http://www.microsoft.com/web/webmatrix/
+http://www.w3.org/
+https://www.devexpress.com/
+http://www.w3schools.com/aspnet/
+
+
+webpage
+modelo ita controlador
+webfront
+
+C:\Users\Estudiante_2\Documents\My Web Sites\EmptySite
+C:\Users\Estudiante_2\Documents\My Web Sites\WebSite1
+C:\Users\Estudiante_2\Documents\visual studio 2012\Projects\MvcApplication1\MvcApplication1
+C:\Users\Estudiante_2\Documents\visual studio 2012\Projects\Ejemplo de CSS\Ejemplo de CSS
+C:\Users\Estudiante_2\Documents\My Web Sites\Panadería1
+C:\Users\Estudiante_2\Documents\My Web Sites\EmptySite
+
+[notas]
+
+TCP envia respuesta y requesa informas
+UDP puertos que no requieren respuesta....
+smthp   25
+https   443
+
+
+todos los navegadores trabajan html
+asp pagina de incio es default, en html es index
+funciones simepre retornan un valor, los modulos no.
+
+@{ indica codigo RAZOR

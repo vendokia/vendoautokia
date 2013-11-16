@@ -1,0 +1,128 @@
+﻿@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@{
+    Page.Title = "Realice su pedido";
+
+    var db = Database.Open("bakery");
+    var productId = UrlData[0].AsInt();
+    var product = db.QuerySingle("SELECT * FROM PRODUCTS WHERE ID = @0", productId);
+
+    if (product == null) {
+        Response.Redirect("~/");
+    }
+
+    // Validación de la instalación
+    Validation.RequireField("orderEmail", "Debe especificar una dirección de correo electrónico.");
+    Validation.RequireField("orderShipping", "Debe especificar una dirección de envío.");
+
+    if (IsPost && Validation.IsValid()) {
+        var email = Request["orderEmail"];
+        var shipping = Request["orderShipping"];
+
+        //Si no hay errores, intente procesar el pedido
+        var body = "Gracias, hemos recibido su pedido de " + Request["orderQty"] + " unidades de " + product.Name + "!<br/>";
+        var orderShipping = Request["orderShipping"];
+        var customerEmail = Request["orderEmail"];
+        if (!orderShipping.IsEmpty()) {
+            //Reemplazar los retornos de carro con saltos HTML en el correo HTML
+            var formattedOrder = orderShipping.Replace("\r\n", "<br/>");
+            body += "Su dirección es: <br/>" + formattedOrder + "<br/>";
+        }
+        body += "El importe total es €" + product.Price * Request["orderQty"].AsDecimal() +".<br/>";
+        body += "En caso de tener dudas acerca de su pedido, nos pondremos en contacto con usted. Gracias!<br/>";
+
+        //Configuración de SMTP para Hotmail
+        WebMail.SmtpServer = "smtp.live.com";
+        WebMail.SmtpPort = 25;
+        WebMail.EnableSsl = true;
+
+        //Escriba sus credenciales de Hotmail para el nombre de usuario y contraseña, así como la dirección del remitente del correo electrónico
+        WebMail.UserName = "vendoautokia@outlook.com";
+        WebMail.Password = "12345678.";
+        WebMail.From = "vendoautokia@outlook.com";
+
+        if (WebMail.UserName.IsEmpty() || WebMail.Password.IsEmpty() || WebMail.From.IsEmpty()) {
+            Response.Redirect("~/OrderSuccess?NoEmail=1");
+        } 
+        else {
+            try {
+                WebMail.Send(to: customerEmail, subject: "Humantis Tecnologic - Nuevo pedido", body: body);
+                Response.Redirect("~/OrderSuccess");
+            } catch {
+                ModelState.AddFormError("Se ha producido un error y el pedido no se puede procesar en este momento");
+            }
+        }
+    }
+}
+
+<ol id="orderProcess">
+    <li><span class="step-number">1</span>Elegir artículo</li>
+    <li class="current"><span class="step-number">2</span>Detalles y envío</li>
+    <li><span class="step-number">3</span>Recibo</li>
+</ol>
+<h1>Realice su pedido: @product.Name</h1>
+<form action="" method="post">
+    @Html.ValidationSummary(excludeFieldErrors: true)
+
+    <fieldset class="no-legend">
+        <legend>Realice su pedido</legend>
+        <img class="product-image order-image" src="~/Images/Products/Thumbnails/@product.ImageName" alt="Imagen de @product.Name"/>
+        <ul class="orderPageList" data-role="listview">
+            <li>
+                <div>
+                    <p class="description">@product.Description</p>
+                </div>                
+            </li>
+            <li class="email">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderEmail">Su dirección de correo electrónico</label>
+                    <input type="text" id="orderEmail" name="orderEmail" @Validation.For("orderEmail")/>                
+                    <div>@Html.ValidationMessage("orderEmail")</div>
+                </div>
+            </li>
+            <li class="shipping">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderShipping">Dirección de envío</label>
+                    <textarea rows="4" id="orderShipping" name="orderShipping" @Validation.For("orderShipping")></textarea>               
+                    <div>@Html.ValidationMessage("orderShipping")</div>
+                </div>
+            </li>
+            <li class="quantity">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderQty">Cantidad</label>
+                    <input type="text" id="orderQty" name="orderQty" value="1"/>
+                    x
+                    <span id="orderPrice">@string.Format("{0:f}", product.Price)</span>
+                    =
+                    <span id="orderTotal">@string.Format("{0:f}", product.Price)</span>
+                </div>
+            </li>
+        </ul>
+        <p class="actions">
+            <input type="hidden" name="ProductId" value="@product.Id" />
+            <input type="submit" value="Realizar pedido" data-role="none" data-inline="true"/>
+        </p>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        var price = parseFloat($("#orderPrice").text()).toFixed(2),
+            total = $("#orderTotal"),
+            orderQty = $("#orderQty");
+
+        orderQty.change(function () {
+            var quantity = parseInt(orderQty.val());
+            if (!quantity || quantity < 1) {
+                orderQty.val(1);
+                quantity = 1;
+            } else if (quantity.toString() !== orderQty.val()) {
+                orderQty.val(quantity);
+            }
+            total.text("$" + (price * quantity).toFixed(2));
+        });
+    });
+</script>
