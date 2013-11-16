@@ -1,4 +1,14 @@
+VX3VY-8GCVT-KJQCY-RQ99X-MCF2R 
+
+que es hash? para confirmar que todo esta bien.
+error 404 indica que la pagina no existe.
+rollback reversar.
+java es xml + visual studio
+
+http://www.visualstudio.com/
 https://github.com/vendokia/vendoautokia.git
+https://github.com/search?q=luxcarcafe&type=Repositories&ref=searchresults
+luxcarcafe
 
 <div id="sidebar">  
     @*Twitter.Search(
